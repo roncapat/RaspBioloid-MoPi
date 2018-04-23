@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+import rospy, mopiapi
+from std_msgs.msg import Float32
+
+def publisher():
+	print("Avvio il publisher...")
+	mymopi = mopiapi.mopiapi()
+	pub = rospy.Publisher('battery_lvl', Float32, queue_size=5)
+	rospy.init_node("publisher", anonymous=True)
+	rate = rospy.Rate(1)
+	while not rospy.is_shutdown():
+		v = float(mymopi.getVoltage())/1000
+		#rospy.loginfo(v)
+		pub.publish(v)
+		rate.sleep()
+		
+
+if __name__ == "__main__":
+	try:
+		publisher()
+	except rospy.ROSInterruptException:
+		pass
