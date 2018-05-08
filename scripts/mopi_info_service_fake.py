@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import rospy
-from mopi.srv import *
-from mopi.msg import *
+from mopi_msgs.srv import *
+from mopi_msgs.msg import *
 from std_msgs.msg import Float32
 
 def info_callback(req):
