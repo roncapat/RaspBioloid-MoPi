@@ -9,7 +9,7 @@ def publisher():
 	rospy.init_node("publisher", anonymous=True)
 	rate = rospy.Rate(1)
 	while not rospy.is_shutdown():
-		pub.publish(12.4)
+		pub.publish(float(raw_input("Livello tensione: ")))
 		rate.sleep()
 
 if __name__ == "__main__":
