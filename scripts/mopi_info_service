@@ -8,13 +8,13 @@ from std_msgs.msg import Float32
 __mymopi = mopiapi.mopiapi()
 
 def info_callback(req):
-	ret = mopi_info()
+	ret = MopiInfoResponse()
 
 	vv = __mymopi.getFirmwareVersion()
 	ret.mayor_ver = vv[0]
 	ret.minor_ver = vv[1]
 
-	s = mopiapi.status(__mymopi.getStatus())		
+	s = mopiapi.status(__mymopi.getStatus())
 
 	ret.status.active = s.SourceOneActive()
 

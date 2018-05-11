@@ -6,7 +6,7 @@ from mopi_msgs.msg import *
 from std_msgs.msg import Float32
 
 def info_callback(req):
-	ret = mopi_info()
+	ret = MopiInfoResponse()
 
 	ret.mayor_ver = 5
 	ret.minor_ver = 2
